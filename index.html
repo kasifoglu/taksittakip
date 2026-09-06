@@ -6,44 +6,38 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0E1424">
 <title>Taksit Takip</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
   :root{
-    --bg: #0E1424;
-    --bg-glow: #16204A;
-    --surface: #161D33;
-    --surface-2: #1C2540;
-    --border: #2A3457;
-    --border-soft: #212A4A;
-    --text: #EDEFF6;
-    --text-dim: #8C96B8;
-    --text-faint: #5C6690;
-    --amber: #E8A33D;
-    --amber-dim: #A97627;
-    --teal: #45C7B8;
-    --red: #E1594E;
-    --radius-card: 16px;
-    --radius-sm: 10px;
-    font-size: 16px;
+    --bg:#0E1424;
+    --bg-glow:#16204A;
+    --surface:#161D33;
+    --surface-2:#1C2540;
+    --border:#2A3457;
+    --border-soft:#212A4A;
+    --text:#EDEFF6;
+    --text-dim:#8C96B8;
+    --text-faint:#5C6690;
+    --amber:#E8A33D;
+    --amber-dim:#A97627;
+    --teal:#45C7B8;
+    --red:#E1594E;
+    --radius-card:16px;
+    --radius-sm:10px;
+    font-size:16px;
   }
-
   *{box-sizing:border-box;}
-
   html,body{
     margin:0;
     padding:0;
-    height:100%;
+    min-height:100%;
   }
-
   html{
     background-color:#0E1424 !important;
     color-scheme:dark;
   }
-
   body{
     background-color:#0E1424 !important;
     color:#EDEFF6 !important;
@@ -51,7 +45,6 @@
     min-height:100vh;
     -webkit-font-smoothing:antialiased;
   }
-
   #app{
     background-color:#0E1424;
     min-height:100vh;
@@ -59,13 +52,10 @@
     margin:0 auto;
     padding:28px 20px 80px;
   }
-
   .tabular{
     font-variant-numeric:tabular-nums;
   }
-
   /* ---------- Top bar ---------- */
-
   header.topbar{
     display:flex;
     flex-wrap:wrap;
@@ -74,44 +64,37 @@
     gap:20px;
     margin-bottom:28px;
   }
-
   .brand h1{
     font-size:1.5rem;
     font-weight:700;
     letter-spacing:-0.01em;
     margin:0 0 4px;
   }
-
   .brand p{
     margin:0;
     color:var(--text-dim);
     font-size:0.88rem;
   }
-
   .summary-row{
     display:flex;
     gap:28px;
     flex-wrap:wrap;
   }
-
   .summary-item .label{
     display:block;
     font-size:0.76rem;
     color:var(--text-dim);
     margin-bottom:4px;
   }
-
   .summary-item .value{
     font-size:1.5rem;
     font-weight:700;
     color:var(--amber);
   }
-
   .actions{
     display:flex;
     gap:10px;
   }
-
   button{
     font-family:inherit;
     cursor:pointer;
@@ -127,27 +110,22 @@
       border-color .15s ease,
       transform .1s ease;
   }
-
   button:hover{
     background:#232D4E;
     border-color:#39447A;
   }
-
   button:active{
     transform:translateY(1px);
   }
-
   button.primary{
     background:var(--amber);
     border-color:var(--amber);
     color:#231404;
   }
-
   button.primary:hover{
     background:#F0B255;
     border-color:#F0B255;
   }
-
   button.ghost{
     background:transparent;
     border-color:transparent;
@@ -155,42 +133,34 @@
     padding:6px 8px;
     font-size:0.8rem;
   }
-
   button.ghost:hover{
     background:var(--surface-2);
     color:var(--text);
   }
-
   button.danger-ghost{
     color:var(--red);
   }
-
   button:disabled{
-    opacity:0.4;
+    opacity:.4;
     cursor:not-allowed;
   }
-
   /* ---------- Cards ---------- */
-
   section.cards-panel{
     margin-bottom:34px;
   }
-
   .cards-panel h2,
   .months h2{
-    font-size:0.82rem;
+    font-size:.82rem;
     font-weight:600;
     color:var(--text-dim);
     margin:0 0 12px;
   }
-
   .cards-scroll{
     display:flex;
     gap:14px;
     overflow-x:auto;
     padding-bottom:6px;
   }
-
   .card-chip{
     position:relative;
     flex:0 0 auto;
@@ -203,9 +173,8 @@
     justify-content:space-between;
     color:#fff;
     overflow:hidden;
-    box-shadow:0 8px 20px -10px rgba(0,0,0,0.6);
+    box-shadow:0 8px 20px -10px rgba(0,0,0,.6);
   }
-
   .card-chip::after{
     content:"";
     position:absolute;
@@ -214,55 +183,56 @@
     width:120px;
     height:120px;
     border-radius:50%;
-    background:rgba(255,255,255,0.10);
+    background:rgba(255,255,255,.10);
+    pointer-events:none;
   }
-
   .card-chip .chip-top{
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
+    position:relative;
+    z-index:2;
   }
-
   .card-chip .chip-icon{
     width:26px;
     height:18px;
     border-radius:4px;
-    background:rgba(255,255,255,0.75);
+    background:rgba(255,255,255,.75);
   }
-
   .card-chip .chip-actions{
     display:flex;
-    gap:2px;
+    gap:4px;
   }
-
   .card-chip .chip-actions button{
-    background:rgba(0,0,0,0.25);
+    background:rgba(0,0,0,.25);
     border:none;
     color:#fff;
-    width:24px;
-    height:24px;
+    width:28px;
+    height:28px;
     padding:0;
-    border-radius:6px;
-    font-size:0.75rem;
+    border-radius:7px;
+    font-size:.8rem;
     line-height:1;
+    position:relative;
+    z-index:5;
   }
-
   .card-chip .chip-actions button:hover{
-    background:rgba(0,0,0,0.45);
+    background:rgba(0,0,0,.45);
   }
-
   .card-chip .chip-name{
     font-weight:700;
     font-size:1rem;
-    letter-spacing:0.01em;
-    text-shadow:0 1px 3px rgba(0,0,0,0.25);
+    letter-spacing:.01em;
+    text-shadow:0 1px 3px rgba(0,0,0,.25);
+    position:relative;
+    z-index:2;
   }
-
   .card-chip .chip-total{
-    font-size:0.76rem;
-    opacity:0.9;
+    font-size:.76rem;
+    opacity:.9;
+    position:relative;
+    z-index:2;
   }
-
   .add-card-chip{
     flex:0 0 auto;
     width:190px;
@@ -276,36 +246,56 @@
     align-items:center;
     justify-content:center;
     gap:6px;
-    font-size:0.85rem;
+    font-size:.85rem;
   }
-
   .add-card-chip:hover{
     border-color:var(--amber-dim);
     color:var(--amber);
   }
-
   .empty-note{
     color:var(--text-faint);
-    font-size:0.85rem;
+    font-size:.85rem;
     padding:8px 2px;
   }
-
+  /* ---------- Tabs ---------- */
+  .section-tabs{
+    display:flex;
+    gap:4px;
+    margin-bottom:14px;
+    border-bottom:1px solid var(--border-soft);
+  }
+  .section-tab{
+    border:none;
+    background:transparent;
+    color:var(--text-faint);
+    border-radius:8px 8px 0 0;
+    padding:10px 14px;
+    font-size:.82rem;
+    font-weight:600;
+  }
+  .section-tab:hover{
+    background:var(--surface);
+    color:var(--text);
+    border-color:transparent;
+  }
+  .section-tab.active{
+    color:var(--amber);
+    background:var(--surface);
+    border-bottom:2px solid var(--amber);
+  }
   /* ---------- Months ---------- */
-
   .months{
     display:flex;
     flex-direction:column;
   }
-
   .month-divider{
     display:flex;
     align-items:center;
     gap:10px;
     margin:22px 0 10px;
     color:var(--text-faint);
-    font-size:0.74rem;
+    font-size:.74rem;
   }
-
   .month-divider::before,
   .month-divider::after{
     content:"";
@@ -313,11 +303,9 @@
     height:1px;
     background:var(--border-soft);
   }
-
   details.month-row{
     border-bottom:1px solid var(--border-soft);
   }
-
   details.month-row summary{
     list-style:none;
     cursor:pointer;
@@ -327,207 +315,158 @@
     padding:15px 4px;
     gap:12px;
   }
-
   details.month-row summary::-webkit-details-marker{
     display:none;
   }
-
   .month-name{
     font-weight:600;
-    font-size:0.96rem;
+    font-size:.96rem;
     display:flex;
     align-items:center;
     gap:10px;
     min-width:170px;
   }
-
   .month-name .chevron{
     color:var(--text-faint);
-    font-size:0.7rem;
+    font-size:.7rem;
     transition:transform .15s ease;
     display:inline-block;
   }
-
   details[open] .chevron{
     transform:rotate(90deg);
   }
-
   .month-summary-right{
     display:flex;
     align-items:center;
     gap:16px;
     color:var(--text-dim);
-    font-size:0.85rem;
+    font-size:.85rem;
   }
-
   .month-summary-right .month-total{
     color:var(--text);
     font-weight:700;
-    font-size:0.98rem;
+    font-size:.98rem;
   }
-
   .month-dots{
     display:flex;
     gap:4px;
   }
-
   .dot{
     width:8px;
     height:8px;
     border-radius:50%;
   }
-
   .month-body{
     padding:2px 4px 18px 4px;
   }
-
   .month-empty{
     color:var(--text-faint);
-    font-size:0.85rem;
+    font-size:.85rem;
     padding:6px 0 12px;
   }
-
   table.tx-table{
     width:100%;
     border-collapse:collapse;
-    font-size:0.87rem;
+    font-size:.87rem;
   }
-
   table.tx-table th{
     text-align:left;
     font-weight:500;
     color:var(--text-faint);
-    font-size:0.72rem;
+    font-size:.72rem;
     padding:0 8px 8px;
     border-bottom:1px solid var(--border-soft);
   }
-
   table.tx-table td{
     padding:9px 8px;
     border-bottom:1px solid var(--border-soft);
     vertical-align:middle;
   }
-
   table.tx-table tr:last-child td{
     border-bottom:none;
   }
-
-  /* ---------- Swipe / Paid ---------- */
-
-  .tx-row{
+  .card-tag{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .card-tag .dot{
+    width:10px;
+    height:10px;
+    flex:0 0 auto;
+  }
+  .tx-note{
+    color:var(--text-dim);
+  }
+  .tx-progress{
+    color:var(--text-faint);
+    font-size:.78rem;
+  }
+  .tx-amount{
+    text-align:right;
+    font-weight:600;
+  }
+  .tx-del{
+    color:var(--text-faint);
+    background:none;
+    border:none;
+    padding:2px 6px;
+    font-size:.9rem;
+  }
+  .tx-del:hover{
+    color:var(--red);
+    background:transparent;
+    border-color:transparent;
+  }
+  tfoot td{
+    padding-top:10px;
+    font-weight:700;
+    border-bottom:none !important;
+  }
+  /* ---------- Paid installment ---------- */
+  .installment-row{
+    position:relative;
     transition:
       opacity .2s ease,
       background .2s ease,
       transform .2s ease;
     touch-action:pan-y;
   }
-
-  .tx-row.paid{
-    opacity:0.38;
+  .installment-row.paid{
+    opacity:.38;
   }
-
-  .tx-row.past{
-    opacity:0.38;
+  .installment-row.paid .tx-amount{
+    text-decoration:line-through;
   }
-
-  .tx-row.paid.past{
-    opacity:0.25;
-  }
-
-  .tx-row.swipe-hint{
-    background:rgba(69,199,184,0.08);
-  }
-
-  .tx-status{
-    display:inline-flex;
-    align-items:center;
-    gap:5px;
-    margin-left:7px;
+  .paid-badge{
+    display:inline-block;
+    margin-left:6px;
+    font-size:.62rem;
     color:var(--teal);
-    font-size:0.68rem;
-    font-weight:600;
+    border:1px solid rgba(69,199,184,.35);
+    border-radius:5px;
+    padding:2px 4px;
+    vertical-align:middle;
+  }
+  .swipe-hint{
+    color:var(--text-faint);
+    font-size:.65rem;
     white-space:nowrap;
   }
-
-  .tx-status::before{
-    content:"✓";
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width:14px;
-    height:14px;
-    border-radius:50%;
-    background:rgba(69,199,184,0.18);
-    font-size:0.65rem;
-  }
-
-  .tx-swipe-text{
-    color:var(--text-faint);
-    font-size:0.65rem;
-    margin-top:3px;
-  }
-
-  .card-tag{
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
-
-  .card-tag .dot{
-    width:10px;
-    height:10px;
-    flex:0 0 auto;
-  }
-
-  .tx-note{
-    color:var(--text-dim);
-  }
-
-  .tx-progress{
-    color:var(--text-faint);
-    font-size:0.78rem;
-  }
-
-  .tx-amount{
-    text-align:right;
-    font-weight:600;
-  }
-
-  .tx-del{
-    color:var(--text-faint);
-    background:none;
-    border:none;
-    padding:2px 6px;
-    font-size:0.9rem;
-  }
-
-  .tx-del:hover{
-    color:var(--red);
-  }
-
-  tfoot td{
-    padding-top:10px;
-    font-weight:700;
-    border-bottom:none !important;
-  }
-
   /* ---------- Modal ---------- */
-
   .modal-overlay{
     position:fixed;
     inset:0;
-    background:rgba(6,8,18,0.6);
+    background:rgba(6,8,18,.6);
     display:none;
     align-items:center;
     justify-content:center;
     padding:20px;
     z-index:50;
   }
-
   .modal-overlay.open{
     display:flex;
   }
-
   .modal{
     background:var(--surface);
     border:1px solid var(--border);
@@ -535,25 +474,21 @@
     width:100%;
     max-width:420px;
     padding:22px;
-    box-shadow:0 30px 60px -20px rgba(0,0,0,0.7);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.7);
   }
-
   .modal h2{
     margin:0 0 16px;
     font-size:1.1rem;
   }
-
   .field{
     margin-bottom:14px;
   }
-
   .field label{
     display:block;
-    font-size:0.8rem;
+    font-size:.8rem;
     color:var(--text-dim);
     margin-bottom:6px;
   }
-
   .field input,
   .field select{
     width:100%;
@@ -562,35 +497,33 @@
     color:var(--text);
     border-radius:var(--radius-sm);
     padding:10px 12px;
-    font-size:0.92rem;
+    font-size:.92rem;
     font-family:inherit;
   }
-
   .field input:focus,
   .field select:focus{
     outline:none;
     border-color:var(--amber-dim);
   }
-
+  .field input[type="number"]{
+    -webkit-appearance:none;
+    appearance:none;
+  }
   .field-row{
     display:flex;
     gap:12px;
   }
-
   .field-row .field{
     flex:1;
   }
-
   .field-row select{
     flex:1;
   }
-
   .swatches{
     display:flex;
     gap:8px;
     flex-wrap:wrap;
   }
-
   .swatch{
     width:28px;
     height:28px;
@@ -598,288 +531,217 @@
     border:2px solid transparent;
     cursor:pointer;
   }
-
   .swatch.selected{
     border-color:#fff;
   }
-
   .preview-box{
     background:var(--surface-2);
     border:1px solid var(--border-soft);
     border-radius:var(--radius-sm);
     padding:10px 12px;
-    font-size:0.82rem;
+    font-size:.82rem;
     color:var(--text-dim);
     margin-bottom:14px;
     min-height:20px;
   }
-
   .preview-box strong{
     color:var(--amber);
   }
-
   .modal-actions{
     display:flex;
     justify-content:flex-end;
     gap:10px;
     margin-top:6px;
   }
-
   .modal-error{
     color:var(--red);
-    font-size:0.8rem;
+    font-size:.8rem;
     margin:-6px 0 12px;
   }
-
-  @media (max-width:520px){
-
+  @media(max-width:520px){
     header.topbar{
       flex-direction:column;
       align-items:flex-start;
     }
-
+    .summary-row{
+      width:100%;
+    }
+    .summary-item{
+      flex:1;
+    }
     .actions{
       width:100%;
     }
-
     .actions button{
       flex:1;
     }
-
     .month-name{
       min-width:0;
     }
-
     table.tx-table{
-      font-size:0.8rem;
+      font-size:.8rem;
     }
-
-    table.tx-table th:nth-child(2),
-    table.tx-table td:nth-child(2){
-      max-width:90px;
+    table.tx-table th,
+    table.tx-table td{
+      padding-left:5px;
+      padding-right:5px;
     }
-
-    .tx-status{
-      display:flex;
-      margin-left:0;
-      margin-top:3px;
+    .tx-note{
+      max-width:110px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .swipe-hint{
+      display:none;
     }
   }
 </style>
 </head>
-
 <body>
-
 <div id="app">
-
   <header class="topbar">
-
-    <div class="brand">
-      <h1>Taksit Takip</h1>
-      <p>Kredi kartı taksitlerinizi aylara göre planlayın</p>
-    </div>
-
-    <div class="summary-row">
-
-      <div class="summary-item">
-        <span class="label">Ödenmemiş Taksitler</span>
-        <span class="value tabular" id="totalAmount">₺0,00</span>
-      </div>
-
-    </div>
-
-    <div class="actions">
-      <button id="btnAddTx" class="primary">+ Taksit Ekle</button>
-    </div>
-
+<div class="brand">
+  <h1>Taksit Takip</h1>
+  <p>Kredi kartı taksitlerinizi aylara göre planlayın</p>
+</div>
+<div class="summary-row">
+  <div class="summary-item">
+    <span class="label">Ödenmemiş Taksitlerin Toplamı</span>
+    <span class="value tabular" id="totalAmount">₺0,00</span>
+  </div>
+</div>
+<div class="actions">
+  <button id="btnAddTx" class="primary">+ Taksit Ekle</button>
+</div>
   </header>
-
-
   <section class="cards-panel">
-
-    <h2>Kartlarım</h2>
-
-    <div class="cards-scroll" id="cardsScroll"></div>
-
+<h2>Kartlarım</h2>
+<div class="cards-scroll" id="cardsScroll"></div>
   </section>
-
-
   <section class="months">
-
-    <h2>Aylara Göre Taksitler</h2>
-
-    <div id="monthsContainer"></div>
-
+<div class="section-tabs">
+  <button
+    type="button"
+    id="tabCurrent"
+    class="section-tab active">
+    Aylara Göre Taksitler
+  </button>
+  <button
+    type="button"
+    id="tabPast"
+    class="section-tab">
+    Geçmiş Aylar
+  </button>
+</div>
+<div id="monthsContainer"></div>
   </section>
-
 </div>
-
-
 <!-- Kart Modal -->
-
 <div class="modal-overlay" id="cardModalOverlay">
-
   <div class="modal">
-
-    <h2 id="cardModalTitle">Kart Ekle</h2>
-
-    <div class="field">
-
-      <label for="cardNameInput">Kart Adı</label>
-
-      <input
-        id="cardNameInput"
-        maxlength="24"
-        placeholder="Örn: Bonus Kart"
-      >
-
-    </div>
-
-    <div class="field">
-
-      <label>Renk</label>
-
-      <div class="swatches" id="colorSwatches"></div>
-
-    </div>
-
-    <div
-      class="modal-error"
-      id="cardModalError"
-      style="display:none;"
-    ></div>
-
-    <div class="modal-actions">
-
-      <button id="cardModalCancel">Vazgeç</button>
-
-      <button id="cardModalSave" class="primary">
-        Kaydet
-      </button>
-
-    </div>
-
-  </div>
-
+<h2 id="cardModalTitle">Kart Ekle</h2>
+<div class="field">
+  <label for="cardNameInput">Kart Adı</label>
+  <input
+    id="cardNameInput"
+    maxlength="24"
+    placeholder="Kart adı">
 </div>
-
-
+<div class="field">
+  <label>Renk</label>
+  <div
+    class="swatches"
+    id="colorSwatches">
+  </div>
+</div>
+<div
+  class="modal-error"
+  id="cardModalError"
+  style="display:none;">
+</div>
+<div class="modal-actions">
+  <button
+    id="cardModalCancel">
+    Vazgeç
+  </button>
+  <button
+    id="cardModalSave"
+    class="primary">
+    Kaydet
+  </button>
+</div>
+  </div>
+</div>
 <!-- Taksit Modal -->
-
 <div class="modal-overlay" id="txModalOverlay">
-
   <div class="modal">
-
-    <h2>Yeni Taksit Ekle</h2>
-
-    <div class="field">
-
-      <label for="txCardSelect">Kart</label>
-
-      <select id="txCardSelect"></select>
-
-    </div>
-
-
-    <div class="field-row">
-
-      <div class="field">
-
-        <label for="txAmount">Toplam Tutar (₺)</label>
-
-        <input
-          id="txAmount"
-          type="text"
-          inputmode="numeric"
-          autocomplete="off"
-          placeholder="0"
-        >
-
-      </div>
-
-
-      <div class="field">
-
-        <label for="txCount">Taksit Sayısı</label>
-
-        <input
-          id="txCount"
-          type="text"
-          inputmode="numeric"
-          autocomplete="off"
-          value="1"
-        >
-
-      </div>
-
-    </div>
-
-
-    <div class="field">
-
-      <label>İlk Ödeme Ayı</label>
-
-      <div class="field-row">
-
-        <select id="txFirstMonthSel"></select>
-
-        <select id="txFirstYearSel"></select>
-
-      </div>
-
-    </div>
-
-
-    <div class="field">
-
-      <label for="txNote">Not</label>
-
-      <input
-        id="txNote"
-        maxlength="60"
-      >
-
-    </div>
-
-
-    <div class="preview-box" id="txPreview">
-      Aylık tutarı görmek için formu doldurun.
-    </div>
-
-
-    <div
-      class="modal-error"
-      id="txModalError"
-      style="display:none;"
-    ></div>
-
-
-    <div class="modal-actions">
-
-      <button id="txModalCancel">Vazgeç</button>
-
-      <button id="txModalSave" class="primary">
-        Ekle
-      </button>
-
-    </div>
-
-  </div>
-
+<h2>Yeni Taksit Ekle</h2>
+<div class="field">
+  <label for="txCardSelect">Kart</label>
+  <select id="txCardSelect"></select>
 </div>
-
-
+<div class="field-row">
+  <div class="field">
+    <label for="txAmount">
+      Toplam Tutar (₺)
+    </label>
+    <!-- Sistem klavyesi -->
+    <input
+      id="txAmount"
+      type="number"
+      inputmode="numeric"
+      min="1"
+      step="1"
+      placeholder="0">
+  </div>
+  <div class="field">
+    <label for="txCount">
+      Taksit Sayısı
+    </label>
+    <select id="txCount"></select>
+  </div>
+</div>
+<div class="field">
+  <label>İlk Ödeme Ayı</label>
+  <div class="field-row">
+    <select id="txFirstMonthSel"></select>
+    <select id="txFirstYearSel"></select>
+  </div>
+</div>
+<div class="field">
+  <label for="txNote">Not</label>
+  <input
+    id="txNote"
+    maxlength="60">
+</div>
+<div
+  class="preview-box"
+  id="txPreview">
+  Aylık tutarı görmek için formu doldurun.
+</div>
+<div
+  class="modal-error"
+  id="txModalError"
+  style="display:none;">
+</div>
+<div class="modal-actions">
+  <button id="txModalCancel">
+    Vazgeç
+  </button>
+  <button
+    id="txModalSave"
+    class="primary">
+    Ekle
+  </button>
+</div>
+  </div>
+</div>
 <script>
-
 (function(){
-
   "use strict";
-
-
   var STORAGE_KEY = "taksitTakipData_v1";
-
   var MAX_CARDS = 10;
-
   var MONTH_NAMES = [
     "Ocak",
     "Şubat",
@@ -894,8 +756,6 @@
     "Kasım",
     "Aralık"
   ];
-
-
   var PALETTE = [
     "#3B5AA6",
     "#2F8F7A",
@@ -908,2581 +768,1397 @@
     "#7A3B6B",
     "#3D5A5A"
   ];
-
-
   /* ---------------- State ---------------- */
-
   var state = {
     cards: [],
     transactions: []
   };
-
-
   var editingCardId = null;
-
   var selectedColor = PALETTE[0];
-
-
+  var activeTab = "current";
   /* ---------------- Storage ---------------- */
-
   function loadState(){
-
     try{
-
       var raw = localStorage.getItem(STORAGE_KEY);
-
       if(raw){
-
         var parsed = JSON.parse(raw);
-
         if(
           parsed &&
           Array.isArray(parsed.cards) &&
           Array.isArray(parsed.transactions)
         ){
-
           state = parsed;
-
+          /*
+           * Eski kayıtlarla uyumluluk.
+           * Eski işlemlerde paidInstallments yoksa oluşturulur.
+           */
+          state.transactions.forEach(function(tx){
+            if(!Array.isArray(tx.paidInstallments)){
+              tx.paidInstallments = [];
+            }
+          });
         }
-
       }
-
     }catch(e){
-
       console.warn(
         "Depolanan veri okunamadı:",
         e
       );
-
     }
-
   }
-
-
   function saveState(){
-
     try{
-
       localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify(state)
       );
-
     }catch(e){
-
       console.warn(
         "Veri kaydedilemedi:",
         e
       );
-
     }
-
   }
-
-
   function uid(){
-
-    return Date.now().toString(36)
-      + Math.random()
-        .toString(36)
-        .slice(2,8);
-
+    return Date.now().toString(36) +
+      Math.random().toString(36).slice(2,8);
   }
-
-
   /* ---------------- Month helpers ---------------- */
-
   function currentMonthKey(){
-
     var d = new Date();
-
-    return d.getFullYear()
-      + "-"
-      + String(d.getMonth()+1).padStart(2,"0");
-
+    return d.getFullYear() +
+      "-" +
+      String(d.getMonth()+1).padStart(2,"0");
   }
-
-
   function addMonths(monthKey,n){
-
     var parts = monthKey.split("-");
-
     var y = parseInt(parts[0],10);
-
-    var m = parseInt(parts[1],10) - 1;
-
-    var total = y * 12 + m + n;
-
-    var ny = Math.floor(total / 12);
-
-    var nm = ((total % 12) + 12) % 12;
-
-    return ny
-      + "-"
-      + String(nm+1).padStart(2,"0");
-
+    var m = parseInt(parts[1],10)-1;
+    var total = y*12 + m + n;
+    var ny = Math.floor(total/12);
+    var nm = ((total%12)+12)%12;
+    return ny +
+      "-" +
+      String(nm+1).padStart(2,"0");
   }
-
-
   function monthLabel(monthKey){
-
     var parts = monthKey.split("-");
-
     var y = parseInt(parts[0],10);
-
-    var m = parseInt(parts[1],10) - 1;
-
-    return MONTH_NAMES[m]
-      + " "
-      + y;
-
+    var m = parseInt(parts[1],10)-1;
+    return MONTH_NAMES[m] +
+      " " +
+      y;
   }
-
-
   function compareMonths(a,b){
-
-    return a < b
-      ? -1
-      : (a > b ? 1 : 0);
-
+    return a < b ? -1 :
+      (a > b ? 1 : 0);
   }
-
-
   /* ---------------- Formatting ---------------- */
-
   function formatCurrency(n){
-
     var v =
       Math.round(
         (n + Number.EPSILON) * 100
       ) / 100;
-
-    return "₺"
-      + v.toLocaleString(
+    return "₺" +
+      v.toLocaleString(
         "tr-TR",
         {
           minimumFractionDigits:2,
           maximumFractionDigits:2
         }
       );
-
   }
-
-
   /* ---------------- Installment math ---------------- */
-
   function computeInstallmentAmounts(
     total,
     count
   ){
-
     var base =
       Math.floor(
-        (total / count) * 100
-      ) / 100;
-
+        (total/count)*100
+      )/100;
     var amounts = [];
-
     var runningSum = 0;
-
     for(
-      var i = 0;
-      i < count - 1;
+      var i=0;
+      i<count-1;
       i++
     ){
-
       amounts.push(base);
-
       runningSum += base;
-
     }
-
-
     var last =
       Math.round(
-        (total - runningSum) * 100
-      ) / 100;
-
+        (total-runningSum)*100
+      )/100;
     amounts.push(last);
-
     return amounts;
-
   }
-
-
   /*
-   * Her taksit artık ayrı bir index ile
-   * ödenmiş olarak tutulabiliyor.
-   *
-   * tx.paidInstallments = [1,3,4]
-   * örneğin 1., 3. ve 4. taksit ödendi.
+   * Her taksit için ayrı bir kayıt oluşturulur.
+   * installmentIndex 1'den başlar.
    */
-
-  function isInstallmentPaid(
-    tx,
-    installmentIndex
-  ){
-
-    return Array.isArray(tx.paidInstallments)
-      && tx.paidInstallments.indexOf(
-        installmentIndex
-      ) !== -1;
-
-  }
-
-
-  function setInstallmentPaid(
-    tx,
-    installmentIndex,
-    paid
-  ){
-
-    if(!Array.isArray(tx.paidInstallments)){
-
-      tx.paidInstallments = [];
-
-    }
-
-
-    var index =
-      tx.paidInstallments.indexOf(
-        installmentIndex
-      );
-
-
-    if(paid){
-
-      if(index === -1){
-
-        tx.paidInstallments.push(
-          installmentIndex
-        );
-
-      }
-
-    }else{
-
-      if(index !== -1){
-
-        tx.paidInstallments.splice(
-          index,
-          1
-        );
-
-      }
-
-    }
-
-  }
-
-
-  /*
-   * Geçmiş ayların taksitleri toplamdan
-   * otomatik olarak çıkarılır.
-   *
-   * Mevcut ay için ise ayın 16'sından
-   * itibaren taksit otomatik ödenmiş kabul edilir.
-   */
-
-  function isInstallmentAutomaticallyPaid(
-    monthKey
-  ){
-
-    var current = currentMonthKey();
-
-    if(monthKey < current){
-
-      return true;
-
-    }
-
-    if(monthKey > current){
-
-      return false;
-
-    }
-
-
-    var today = new Date();
-
-    return today.getDate() >= 16;
-
-  }
-
-
-  /*
-   * Uygulama açıldığında mevcut ayın
-   * otomatik ödenmesi gereken taksitlerini
-   * gerçek veri içine de kaydediyoruz.
-   */
-
-  function applyAutomaticPayments(){
-
-    var current = currentMonthKey();
-
-    var today = new Date();
-
-    if(today.getDate() < 16){
-
-      return;
-
-    }
-
-
-    var changed = false;
-
-
-    state.transactions.forEach(function(tx){
-
-      for(
-        var i = 0;
-        i < tx.count;
-        i++
-      ){
-
-        var mk =
-          addMonths(
-            tx.firstMonth,
-            i
-          );
-
-
-        if(mk === current){
-
-          if(
-            !isInstallmentPaid(
-              tx,
-              i + 1
-            )
-          ){
-
-            setInstallmentPaid(
-              tx,
-              i + 1,
-              true
-            );
-
-            changed = true;
-
-          }
-
-        }
-
-      }
-
-    });
-
-
-    if(changed){
-
-      saveState();
-
-    }
-
-  }
-
-
-  /*
-   * Returns map:
-   *
-   * monthKey -> [
-   *   {
-   *     cardId,
-   *     amount,
-   *     note,
-   *     txId,
-   *     index,
-   *     count,
-   *     paid
-   *   }
-   * ]
-   */
-
   function buildBreakdown(){
-
     var map = {};
-
-
     state.transactions.forEach(function(tx){
-
       var amounts =
         computeInstallmentAmounts(
           tx.totalAmount,
           tx.count
         );
-
-
       for(
-        var i = 0;
-        i < tx.count;
+        var i=0;
+        i<tx.count;
         i++
       ){
-
         var mk =
           addMonths(
             tx.firstMonth,
             i
           );
-
-
         if(!map[mk]){
-
           map[mk] = [];
-
         }
-
-
+        var installmentIndex = i+1;
+        var paid =
+          isInstallmentPaid(
+            tx,
+            installmentIndex,
+            mk
+          );
         map[mk].push({
-
-          cardId: tx.cardId,
-
-          amount: amounts[i],
-
-          note: tx.note,
-
-          txId: tx.id,
-
-          index: i + 1,
-
-          count: tx.count,
-
-          paid:
-            isInstallmentPaid(
-              tx,
-              i + 1
-            )
-            ||
-            isInstallmentAutomaticallyPaid(
-              mk
-            )
-
+          cardId:tx.cardId,
+          amount:amounts[i],
+          note:tx.note,
+          txId:tx.id,
+          index:installmentIndex,
+          count:tx.count,
+          paid:paid,
+          monthKey:mk
         });
-
       }
-
     });
-
-
     return map;
-
   }
-
-
-  /*
-   * Geçmiş 12 ay + mevcut ay + gelecek 11 ay
-   * gösterilir.
-   */
-
-  function getVisibleMonths(
-    breakdown
+  /* ---------------- Payment status ---------------- */
+  function isInstallmentPaid(
+    tx,
+    installmentIndex,
+    monthKey
   ){
-
-    var current = currentMonthKey();
-
+    if(
+      Array.isArray(
+        tx.paidInstallments
+      ) &&
+      tx.paidInstallments.indexOf(
+        installmentIndex
+      ) !== -1
+    ){
+      return true;
+    }
+    /*
+     * Her ayın 16'sından itibaren
+     * o ayın taksidi otomatik ödenmiş kabul edilir.
+     */
+    var current = new Date();
+    var todayDay = current.getDate();
+    var currentKey =
+      current.getFullYear() +
+      "-" +
+      String(current.getMonth()+1)
+        .padStart(2,"0");
+    if(
+      monthKey === currentKey &&
+      todayDay >= 16
+    ){
+      return true;
+    }
+    return false;
+  }
+  /*
+   * Manuel ödeme durumunu değiştirir.
+   * Otomatik olarak ödenmiş olan taksitler
+   * ayrıca kaydedilmez; tarih 16'dan önceyse
+   * manuel olarak işaretlenebilir.
+   */
+  function toggleInstallmentPaid(
+    txId,
+    installmentIndex
+  ){
+    var tx =
+      state.transactions.find(
+        function(t){
+          return t.id === txId;
+        }
+      );
+    if(!tx) return;
+    if(!Array.isArray(tx.paidInstallments)){
+      tx.paidInstallments = [];
+    }
+    var index =
+      tx.paidInstallments.indexOf(
+        installmentIndex
+      );
+    if(index === -1){
+      tx.paidInstallments.push(
+        installmentIndex
+      );
+    }else{
+      tx.paidInstallments.splice(
+        index,
+        1
+      );
+    }
+    saveState();
+    renderAll();
+  }
+  /* ---------------- Visible months ---------------- */
+  function getVisibleCurrentMonths(){
+    var start = currentMonthKey();
     var months = [];
-
-
+    /*
+     * Sadece içinde bulunduğumuz ay ve
+     * sonraki 11 ay.
+     */
     for(
-      var i = -12;
-      i <= 11;
+      var i=0;
+      i<12;
       i++
     ){
-
       months.push(
-        addMonths(
-          current,
-          i
-        )
+        addMonths(start,i)
       );
-
     }
-
-
-    var standardSet = {};
-
-    months.forEach(function(mk){
-
-      standardSet[mk] = true;
-
-    });
-
-
-    /*
-     * 12 aylık geleceği aşan taksitler varsa
-     * ayrıca göstermeye devam ediyoruz.
-     */
-
-    var extraMonths =
-      Object.keys(breakdown)
-        .filter(function(mk){
-
-          return !standardSet[mk]
-            &&
-            compareMonths(
-              mk,
-              months[months.length - 1]
-            ) > 0;
-
-        });
-
-
-    extraMonths.sort(compareMonths);
-
-
-    return {
-
-      standard: months,
-
-      extra: extraMonths
-
-    };
-
+    return months;
   }
-
-
-  /* ---------------- Ay / Yıl ---------------- */
-
+  function getPastMonths(breakdown){
+    var current = currentMonthKey();
+    var months = Object.keys(breakdown)
+      .filter(function(mk){
+        return compareMonths(
+          mk,
+          current
+        ) < 0;
+      });
+    months.sort(compareMonths);
+    /*
+     * Sadece geçtiğimiz 12 ay.
+     */
+    var result = [];
+    for(
+      var i=months.length-1;
+      i>=0 && result.length<12;
+      i--
+    ){
+      result.unshift(months[i]);
+    }
+    return result;
+  }
+  /* ---------------- Select helpers ---------------- */
   function populateMonthYearSelects(){
-
     var monthSel =
       document.getElementById(
         "txFirstMonthSel"
       );
-
     monthSel.innerHTML = "";
-
-
     MONTH_NAMES.forEach(
       function(name,idx){
-
         var opt =
           document.createElement(
             "option"
           );
-
         opt.value =
-          String(idx+1)
-            .padStart(2,"0");
-
+          String(idx+1).padStart(2,"0");
         opt.textContent = name;
-
         monthSel.appendChild(opt);
-
       }
     );
-
-
     var yearSel =
       document.getElementById(
         "txFirstYearSel"
       );
-
     yearSel.innerHTML = "";
-
-
     var curYear =
       new Date().getFullYear();
-
-
     for(
-      var y = curYear - 1;
-      y <= curYear + 4;
+      var y=curYear-1;
+      y<=curYear+4;
       y++
     ){
-
       var opt =
         document.createElement(
           "option"
         );
-
       opt.value = String(y);
-
       opt.textContent = String(y);
-
       yearSel.appendChild(opt);
-
     }
-
   }
-
-
+  function populateInstallmentSelect(){
+    var select =
+      document.getElementById(
+        "txCount"
+      );
+    select.innerHTML = "";
+    for(
+      var i=1;
+      i<=36;
+      i++
+    ){
+      var opt =
+        document.createElement(
+          "option"
+        );
+      opt.value = String(i);
+      opt.textContent =
+        i + (i === 1 ? " Taksit" : " Taksit");
+      select.appendChild(opt);
+    }
+    select.value = "1";
+  }
   function setMonthYearSelects(
     monthKey
   ){
-
     var parts =
       monthKey.split("-");
-
-
     document.getElementById(
       "txFirstYearSel"
     ).value = parts[0];
-
-
     document.getElementById(
       "txFirstMonthSel"
     ).value = parts[1];
-
   }
-
-
   function getSelectedFirstMonth(){
-
     var m =
       document.getElementById(
         "txFirstMonthSel"
       ).value;
-
-
     var y =
       document.getElementById(
         "txFirstYearSel"
       ).value;
-
-
     return y + "-" + m;
-
   }
-
-
   /* ---------------- Card helpers ---------------- */
-
   function getCard(id){
-
     return state.cards.find(
       function(c){
-
         return c.id === id;
-
       }
     );
-
   }
-
-
   function nextAvailableColor(){
-
     var used = {};
-
-
-    state.cards.forEach(function(c){
-
-      used[c.color] = true;
-
-    });
-
-
+    state.cards.forEach(
+      function(c){
+        used[c.color] = true;
+      }
+    );
     for(
       var i=0;
       i<PALETTE.length;
       i++
     ){
-
       if(!used[PALETTE[i]]){
-
         return PALETTE[i];
-
       }
-
     }
-
-
     return PALETTE[
-      state.cards.length
-      % PALETTE.length
+      state.cards.length %
+      PALETTE.length
     ];
-
   }
-
-
-  /*
-   * Kart üzerindeki toplam:
-   * geçmiş aylar ve ödenmiş taksitler dahil edilmez.
-   */
-
   function cardTotal(cardId){
-
     var sum = 0;
-
-    var current =
-      currentMonthKey();
-
-
     state.transactions.forEach(
       function(tx){
-
         if(tx.cardId !== cardId){
-
           return;
-
         }
-
-
         var amounts =
           computeInstallmentAmounts(
             tx.totalAmount,
             tx.count
           );
-
-
         for(
           var i=0;
           i<tx.count;
           i++
         ){
-
           var mk =
             addMonths(
               tx.firstMonth,
               i
             );
-
-
-          var paid =
-            isInstallmentPaid(
-              tx,
-              i+1
-            )
-            ||
-            isInstallmentAutomaticallyPaid(
-              mk
-            );
-
-
           if(
-            mk >= current
-            &&
-            !paid
+            !isInstallmentPaid(
+              tx,
+              i+1,
+              mk
+            )
           ){
-
             sum += amounts[i];
-
           }
-
         }
-
       }
     );
-
-
     return sum;
-
   }
-
-
-  /* ---------------- Rendering ---------------- */
-
-  function renderAll(){
-
-    applyAutomaticPayments();
-
-    renderSummary();
-
-    renderCards();
-
-    renderMonths();
-
-    populateCardSelect();
-
-  }
-
-
-  function renderSummary(){
-
+  /* ---------------- Summary ---------------- */
+  function calculateOutstandingTotal(){
     var total = 0;
-
-    var current =
-      currentMonthKey();
-
-
-    state.transactions.forEach(
-      function(tx){
-
-        var amounts =
-          computeInstallmentAmounts(
-            tx.totalAmount,
-            tx.count
-          );
-
-
-        for(
-          var i=0;
-          i<tx.count;
-          i++
-        ){
-
-          var mk =
-            addMonths(
-              tx.firstMonth,
-              i
-            );
-
-
-          var paid =
-            isInstallmentPaid(
-              tx,
-              i+1
-            )
-            ||
-            isInstallmentAutomaticallyPaid(
-              mk
-            );
-
-
-          if(
-            mk >= current
-            &&
-            !paid
-          ){
-
-            total += amounts[i];
-
+    var breakdown =
+      buildBreakdown();
+    Object.keys(breakdown).forEach(
+      function(mk){
+        breakdown[mk].forEach(
+          function(item){
+            /*
+             * Geçmiş aylar zaten toplamdan çıkar.
+             * Ödenmiş taksitler de çıkar.
+             */
+            if(
+              compareMonths(
+                mk,
+                currentMonthKey()
+              ) >= 0 &&
+              !item.paid
+            ){
+              total += item.amount;
+            }
           }
-
-        }
-
+        );
       }
     );
-
-
+    return total;
+  }
+  /* ---------------- Rendering ---------------- */
+  function renderAll(){
+    renderSummary();
+    renderCards();
+    renderMonths();
+    populateCardSelect();
+  }
+  function renderSummary(){
     document.getElementById(
       "totalAmount"
     ).textContent =
-      formatCurrency(total);
-
+      formatCurrency(
+        calculateOutstandingTotal()
+      );
   }
-
-
+  /* ---------------- Cards rendering ---------------- */
   function renderCards(){
-
     var wrap =
       document.getElementById(
         "cardsScroll"
       );
-
     wrap.innerHTML = "";
-
-
     if(state.cards.length === 0){
-
       var note =
         document.createElement(
           "div"
         );
-
       note.className =
         "empty-note";
-
       note.textContent =
         "Henüz kart eklemediniz. Başlamak için bir kart ekleyin.";
-
       wrap.appendChild(note);
-
     }
-
-
     state.cards.forEach(
       function(card){
-
         var chip =
           document.createElement(
             "div"
           );
-
         chip.className =
           "card-chip";
-
         chip.style.background =
-          "linear-gradient(135deg, "
-          + card.color
-          + ", "
-          + shade(
-              card.color,
-              -18
-            )
-          + ")";
-
-
+          "linear-gradient(135deg," +
+          card.color +
+          "," +
+          shade(card.color,-18) +
+          ")";
         var top =
           document.createElement(
             "div"
           );
-
         top.className =
           "chip-top";
-
-
         var icon =
           document.createElement(
             "div"
           );
-
         icon.className =
           "chip-icon";
-
-
         var actions =
           document.createElement(
             "div"
           );
-
         actions.className =
           "chip-actions";
-
-
         var editBtn =
           document.createElement(
             "button"
           );
-
+        editBtn.type = "button";
         editBtn.textContent = "✎";
-
         editBtn.title = "Düzenle";
-
+        /*
+         * stopPropagation sayesinde
+         * kart butonuna basınca başka işlem
+         * tetiklenmez.
+         */
         editBtn.addEventListener(
           "click",
-          function(){
-
+          function(e){
+            e.stopPropagation();
             openCardModal(
               card.id
             );
-
           }
         );
-
-
         var delBtn =
           document.createElement(
             "button"
           );
-
+        delBtn.type = "button";
         delBtn.textContent = "✕";
-
         delBtn.title = "Sil";
-
         delBtn.addEventListener(
           "click",
-          function(){
-
+          function(e){
+            e.stopPropagation();
             deleteCard(
               card.id
             );
-
           }
         );
-
-
         actions.appendChild(
           editBtn
         );
-
         actions.appendChild(
           delBtn
         );
-
-
         top.appendChild(icon);
-
-        top.appendChild(
-          actions
-        );
-
-
+        top.appendChild(actions);
         var name =
           document.createElement(
             "div"
           );
-
         name.className =
           "chip-name";
-
         name.textContent =
           card.name;
-
-
         var totalEl =
           document.createElement(
             "div"
           );
-
         totalEl.className =
           "chip-total tabular";
-
         totalEl.textContent =
-          "Kalan: "
-          + formatCurrency(
-              cardTotal(
-                card.id
-              )
-            );
-
-
+          "Kalan: " +
+          formatCurrency(
+            cardTotal(card.id)
+          );
         chip.appendChild(top);
-
         chip.appendChild(name);
-
-        chip.appendChild(
-          totalEl
-        );
-
+        chip.appendChild(totalEl);
         wrap.appendChild(chip);
-
       }
     );
-
-
     var addChip =
       document.createElement(
         "button"
       );
-
+    addChip.type = "button";
     addChip.className =
       "add-card-chip";
-
     addChip.innerHTML =
-      "<span style=\"font-size:1.3rem;\">+</span>"
-      + "<span>Kart Ekle</span>";
-
-
+      "<span style=\"font-size:1.3rem;\">+</span>" +
+      "<span>Kart Ekle</span>";
     addChip.disabled =
       state.cards.length >= MAX_CARDS;
-
-
     addChip.addEventListener(
       "click",
       function(){
-
         openCardModal(null);
-
       }
     );
-
-
-    wrap.appendChild(
-      addChip
-    );
-
+    wrap.appendChild(addChip);
   }
-
-
-  function shade(
-    hex,
-    percent
-  ){
-
+  function shade(hex,percent){
     var num =
       parseInt(
         hex.replace("#",""),
         16
       );
-
-
     var r =
-      (num >> 16)
-      + Math.round(
-          2.55 * percent
-        );
-
-
+      (num >> 16) +
+      Math.round(2.55*percent);
     var g =
-      ((num >> 8) & 0x00FF)
-      + Math.round(
-          2.55 * percent
-        );
-
-
+      ((num >> 8)&0x00FF) +
+      Math.round(2.55*percent);
     var b =
-      (num & 0x0000FF)
-      + Math.round(
-          2.55 * percent
-        );
-
-
+      (num&0x0000FF) +
+      Math.round(2.55*percent);
     r =
       Math.min(
         255,
         Math.max(0,r)
       );
-
-
     g =
       Math.min(
         255,
         Math.max(0,g)
       );
-
-
     b =
       Math.min(
         255,
         Math.max(0,b)
       );
-
-
-    return "#"
-      + (
-        0x1000000
-        + r * 0x10000
-        + g * 0x100
-        + b
+    return "#" +
+      (
+        0x1000000 +
+        r*0x10000 +
+        g*0x100 +
+        b
       )
-        .toString(16)
-        .slice(1);
-
+      .toString(16)
+      .slice(1);
   }
-
-
+  /* ---------------- Month rendering ---------------- */
   function renderMonths(){
-
     var container =
       document.getElementById(
         "monthsContainer"
       );
-
     container.innerHTML = "";
-
-
     var breakdown =
       buildBreakdown();
-
-
-    var months =
-      getVisibleMonths(
-        breakdown
-      );
-
-
     if(state.cards.length === 0){
-
       var note =
         document.createElement(
           "div"
         );
-
       note.className =
         "empty-note";
-
       note.textContent =
         "Aylık dökümü görmek için önce bir kart ve taksit ekleyin.";
-
       container.appendChild(note);
-
       return;
-
     }
-
-
-    /*
-     * Geçmiş 12 ay.
-     */
-
-    var current =
-      currentMonthKey();
-
-
-    var pastMonths =
-      months.standard.filter(
-        function(mk){
-
-          return mk < current;
-
-        }
-      );
-
-
-    if(pastMonths.length){
-
-      var pastDivider =
-        document.createElement(
-          "div"
+    if(activeTab === "current"){
+      getVisibleCurrentMonths()
+        .forEach(
+          function(mk){
+            container.appendChild(
+              renderMonthRow(
+                mk,
+                breakdown[mk] || [],
+                false
+              )
+            );
+          }
         );
-
-      pastDivider.className =
-        "month-divider";
-
-      pastDivider.textContent =
-        "Geçmiş 12 ay";
-
-      container.appendChild(
-        pastDivider
-      );
-
-
+    }else{
+      var pastMonths =
+        getPastMonths(
+          breakdown
+        );
+      if(pastMonths.length === 0){
+        var empty =
+          document.createElement(
+            "div"
+          );
+        empty.className =
+          "month-empty";
+        empty.textContent =
+          "Geçmiş 12 ay içinde kayıtlı taksit bulunmuyor.";
+        container.appendChild(
+          empty
+        );
+        return;
+      }
       pastMonths.forEach(
         function(mk){
-
           container.appendChild(
             renderMonthRow(
               mk,
-              breakdown[mk] || []
+              breakdown[mk] || [],
+              true
             )
           );
-
         }
       );
-
     }
-
-
-    /*
-     * Mevcut ay + gelecek aylar.
-     */
-
-    var futureDivider =
-      document.createElement(
-        "div"
-      );
-
-    futureDivider.className =
-      "month-divider";
-
-    futureDivider.textContent =
-      "Bu ay ve gelecek taksitler";
-
-    container.appendChild(
-      futureDivider
-    );
-
-
-    months.standard
-      .filter(
-        function(mk){
-
-          return mk >= current;
-
-        }
-      )
-      .forEach(
-        function(mk){
-
-          container.appendChild(
-            renderMonthRow(
-              mk,
-              breakdown[mk] || []
-            )
-          );
-
-        }
-      );
-
-
-    /*
-     * 1 yılı aşan gelecekteki taksitler.
-     */
-
-    if(months.extra.length){
-
-      var divider =
-        document.createElement(
-          "div"
-        );
-
-      divider.className =
-        "month-divider";
-
-      divider.textContent =
-        "1 yılı aşan taksitler";
-
-      container.appendChild(
-        divider
-      );
-
-
-      months.extra.forEach(
-        function(mk){
-
-          container.appendChild(
-            renderMonthRow(
-              mk,
-              breakdown[mk] || []
-            )
-          );
-
-        }
-      );
-
-    }
-
   }
-
-
   function renderMonthRow(
     monthKey,
-    items
+    items,
+    isPast
   ){
-
-    var current =
-      currentMonthKey();
-
-
-    var isPast =
-      monthKey < current;
-
-
     var details =
       document.createElement(
         "details"
       );
-
     details.className =
       "month-row";
-
-
     /*
-     * Geçmiş ayları varsayılan olarak
-     * kapalı tutuyoruz.
+     * Varsayılan olarak kapalı.
+     * open attribute eklenmiyor.
      */
-
-    if(!isPast){
-
-      details.open = true;
-
-    }
-
-
     var summary =
       document.createElement(
         "summary"
       );
-
-
     var nameEl =
       document.createElement(
         "div"
       );
-
     nameEl.className =
       "month-name";
-
-    nameEl.innerHTML =
-      "<span class=\"chevron\">▸</span>"
-      + monthLabel(
-          monthKey
-        );
-
-
+    var chevron =
+      document.createElement(
+        "span"
+      );
+    chevron.className =
+      "chevron";
+    chevron.textContent = "▸";
+    nameEl.appendChild(
+      chevron
+    );
+    nameEl.appendChild(
+      document.createTextNode(
+        monthLabel(monthKey)
+      )
+    );
     var right =
       document.createElement(
         "div"
       );
-
     right.className =
       "month-summary-right";
-
-
     var dots =
       document.createElement(
         "div"
       );
-
     dots.className =
       "month-dots";
-
-
     var seenCards = {};
-
-
     items.forEach(
       function(it){
-
         if(!seenCards[it.cardId]){
-
           seenCards[it.cardId] = true;
-
-
           var card =
-            getCard(
-              it.cardId
-            );
-
-
+            getCard(it.cardId);
           var dot =
             document.createElement(
               "div"
             );
-
-          dot.className =
-            "dot";
-
+          dot.className = "dot";
           dot.style.background =
-            card
-              ? card.color
-              : "#666";
-
-
-          dots.appendChild(
-            dot
-          );
-
+            card ?
+            card.color :
+            "#666";
+          dots.appendChild(dot);
         }
-
       }
     );
-
-
     /*
-     * Ay toplamı:
-     * geçmiş ayların toplamı sadece
-     * görsel amaçlı gösterilir.
+     * Ay toplamında geçmiş aylar dahil edilir
+     * ancak ana üst toplamına dahil edilmez.
      */
-
     var monthSum =
       items.reduce(
         function(s,it){
-
           return s + it.amount;
-
         },
         0
       );
-
-
     var unpaidMonthSum =
       items.reduce(
         function(s,it){
-
-          if(
-            !it.paid
-            &&
-            !isPast
-          ){
-
+          if(!it.paid){
             return s + it.amount;
-
           }
-
           return s;
-
         },
         0
       );
-
-
     var totalEl =
       document.createElement(
         "div"
       );
-
     totalEl.className =
       "month-total tabular";
-
-
     totalEl.textContent =
-      isPast
-        ? formatCurrency(
-            monthSum
-          )
-        : formatCurrency(
-            unpaidMonthSum
-          );
-
-
-    right.appendChild(
-      dots
-    );
-
-    right.appendChild(
-      totalEl
-    );
-
-
-    summary.appendChild(
-      nameEl
-    );
-
-    summary.appendChild(
-      right
-    );
-
-
-    details.appendChild(
-      summary
-    );
-
-
+      formatCurrency(
+        isPast ?
+        monthSum :
+        unpaidMonthSum
+      );
+    right.appendChild(dots);
+    right.appendChild(totalEl);
+    summary.appendChild(nameEl);
+    summary.appendChild(right);
+    details.appendChild(summary);
     var body =
       document.createElement(
         "div"
       );
-
     body.className =
       "month-body";
-
-
     if(items.length === 0){
-
       var empty =
         document.createElement(
           "div"
         );
-
       empty.className =
         "month-empty";
-
       empty.textContent =
         "Bu ay için kayıtlı taksit yok.";
-
-      body.appendChild(
-        empty
-      );
-
+      body.appendChild(empty);
     }else{
-
       var table =
         document.createElement(
           "table"
         );
-
       table.className =
         "tx-table";
-
-
       table.innerHTML =
-        "<thead>"
-        + "<tr>"
-        + "<th>Kart</th>"
-        + "<th>Not</th>"
-        + "<th>Taksit</th>"
-        + "<th style=\"text-align:right;\">Tutar</th>"
-        + "<th></th>"
-        + "</tr>"
-        + "</thead>";
-
-
+        "<thead>" +
+        "<tr>" +
+        "<th>Kart</th>" +
+        "<th>Not</th>" +
+        "<th>Taksit</th>" +
+        "<th style=\"text-align:right;\">Tutar</th>" +
+        "<th></th>" +
+        "</tr>" +
+        "</thead>";
       var tbody =
         document.createElement(
           "tbody"
         );
-
-
       items
         .slice()
         .sort(
           function(a,b){
-
             var ca =
-              getCard(
-                a.cardId
-              );
-
-
+              getCard(a.cardId);
             var cb =
-              getCard(
-                b.cardId
-              );
-
-
+              getCard(b.cardId);
             var na =
-              ca
-                ? ca.name
-                : "";
-
-
+              ca ? ca.name : "";
             var nb =
-              cb
-                ? cb.name
-                : "";
-
-
+              cb ? cb.name : "";
             return na.localeCompare(
               nb,
               "tr"
             );
-
           }
         )
         .forEach(
           function(it){
-
             var card =
-              getCard(
-                it.cardId
-              );
-
-
+              getCard(it.cardId);
             var tr =
               document.createElement(
                 "tr"
               );
-
-
             tr.className =
-              "tx-row";
-
-
-            /*
-             * Geçmiş aylar soluk.
-             */
-
-            if(isPast){
-
-              tr.classList.add(
-                "past"
+              "installment-row" +
+              (
+                it.paid ?
+                " paid" :
+                ""
               );
-
-            }
-
-
-            /*
-             * Ödenmiş taksitler soluk.
-             */
-
-            if(it.paid){
-
-              tr.classList.add(
-                "paid"
-              );
-
-            }
-
-
-            /*
-             * Kart.
-             */
-
+            /* Kart */
             var tdCard =
               document.createElement(
                 "td"
               );
-
-
             var tag =
               document.createElement(
                 "div"
               );
-
             tag.className =
               "card-tag";
-
-
             var dot =
               document.createElement(
                 "div"
               );
-
             dot.className =
               "dot";
-
-
             dot.style.background =
-              card
-                ? card.color
-                : "#666";
-
-
+              card ?
+              card.color :
+              "#666";
             var cname =
               document.createElement(
                 "span"
               );
-
-
             cname.textContent =
-              card
-                ? card.name
-                : "(silinmiş kart)";
-
-
+              card ?
+              card.name :
+              "(silinmiş kart)";
             tag.appendChild(dot);
-
             tag.appendChild(cname);
-
             tdCard.appendChild(tag);
-
-
-            /*
-             * Not.
-             */
-
+            /* Not */
             var tdNote =
               document.createElement(
                 "td"
               );
-
             tdNote.className =
               "tx-note";
-
-
             tdNote.textContent =
               it.note || "—";
-
-
-            /*
-             * Taksit no.
-             */
-
+            /* Taksit */
             var tdProgress =
               document.createElement(
                 "td"
               );
-
             tdProgress.className =
               "tx-progress tabular";
-
-
             tdProgress.textContent =
-              it.index
-              + "/"
-              + it.count;
-
-
-            /*
-             * Ödendi göstergesi.
-             */
-
+              it.index +
+              "/" +
+              it.count;
             if(it.paid){
-
-              var status =
+              var badge =
                 document.createElement(
                   "span"
                 );
-
-              status.className =
-                "tx-status";
-
-              status.textContent =
+              badge.className =
+                "paid-badge";
+              badge.textContent =
                 "Ödendi";
-
-
               tdProgress.appendChild(
-                status
+                badge
               );
-
             }
-
-
-            /*
-             * Tutar.
-             */
-
+            /* Tutar */
             var tdAmount =
               document.createElement(
                 "td"
               );
-
             tdAmount.className =
               "tx-amount tabular";
-
-
             tdAmount.textContent =
               formatCurrency(
                 it.amount
               );
-
-
-            /*
-             * Silme.
-             */
-
+            /* Sil */
             var tdDel =
               document.createElement(
                 "td"
               );
-
-
             var delBtn =
               document.createElement(
                 "button"
               );
-
+            delBtn.type = "button";
             delBtn.className =
               "tx-del";
-
-            delBtn.textContent =
-              "✕";
-
+            delBtn.textContent = "✕";
             delBtn.title =
               "Bu taksit kaydını tamamen sil";
-
-
             delBtn.addEventListener(
               "click",
               function(e){
-
                 e.stopPropagation();
-
                 deleteTransaction(
                   it.txId
                 );
-
               }
             );
-
-
             tdDel.appendChild(
               delBtn
             );
-
-
-            tr.appendChild(
-              tdCard
-            );
-
-            tr.appendChild(
-              tdNote
-            );
-
-            tr.appendChild(
-              tdProgress
-            );
-
-            tr.appendChild(
-              tdAmount
-            );
-
-            tr.appendChild(
-              tdDel
-            );
-
-
+            tr.appendChild(tdCard);
+            tr.appendChild(tdNote);
+            tr.appendChild(tdProgress);
+            tr.appendChild(tdAmount);
+            tr.appendChild(tdDel);
+            tbody.appendChild(tr);
             /*
-             * Sağ kaydırma desteği.
+             * Sağdan/ soldan kaydırma
+             * algılama.
              */
-
-            addSwipeHandler(
+            setupSwipe(
               tr,
-              it.txId,
-              it.index,
-              isPast
+              it
             );
-
-
-            tbody.appendChild(
-              tr
-            );
-
           }
         );
-
-
-      table.appendChild(
-        tbody
-      );
-
-
-      /*
-       * Ay toplamı.
-       */
-
+      table.appendChild(tbody);
+      /* Ay toplamı */
       var tfoot =
         document.createElement(
           "tfoot"
         );
-
-
       var trFoot =
         document.createElement(
           "tr"
         );
-
-
       var tdLabel =
         document.createElement(
           "td"
         );
-
-
       tdLabel.colSpan = 3;
-
-
       tdLabel.textContent =
-        isPast
-          ? "Ay Toplamı"
-          : "Ödenmemiş";
-
-
+        isPast ?
+        "Ay Toplamı" :
+        "Ödenmemiş Ay Toplamı";
       var tdVal =
         document.createElement(
           "td"
         );
-
-
       tdVal.className =
         "tx-amount tabular";
-
-
       tdVal.textContent =
-        isPast
-          ? formatCurrency(
-              monthSum
-            )
-          : formatCurrency(
-              unpaidMonthSum
-            );
-
-
+        formatCurrency(
+          isPast ?
+          monthSum :
+          unpaidMonthSum
+        );
       var tdEmpty =
         document.createElement(
           "td"
         );
-
-
-      trFoot.appendChild(
-        tdLabel
-      );
-
-      trFoot.appendChild(
-        tdVal
-      );
-
-      trFoot.appendChild(
-        tdEmpty
-      );
-
-
-      tfoot.appendChild(
-        trFoot
-      );
-
-
-      table.appendChild(
-        tfoot
-      );
-
-
-      body.appendChild(
-        table
-      );
-
+      trFoot.appendChild(tdLabel);
+      trFoot.appendChild(tdVal);
+      trFoot.appendChild(tdEmpty);
+      tfoot.appendChild(trFoot);
+      table.appendChild(tfoot);
+      body.appendChild(table);
     }
-
-
-    details.appendChild(
-      body
-    );
-
-
+    details.appendChild(body);
     return details;
-
   }
-
-
   /* ---------------- Swipe ---------------- */
-
-  function addSwipeHandler(
-    element,
-    txId,
-    installmentIndex,
-    isPast
+  function setupSwipe(
+    row,
+    item
   ){
-
-    /*
-     * Geçmiş aylarda manuel ödeme değişikliğine
-     * gerek yok; zaten ödenmiş kabul ediliyor.
-     */
-
-    if(isPast){
-
-      return;
-
-    }
-
-
-    var startX = null;
-
-    var startY = null;
-
-    var currentX = null;
-
-
-    element.addEventListener(
+    var startX = 0;
+    var startY = 0;
+    var currentX = 0;
+    var tracking = false;
+    row.addEventListener(
       "touchstart",
       function(e){
-
         if(
-          !e.touches
-          ||
+          !e.touches ||
           !e.touches.length
         ){
-
           return;
-
         }
-
-
         startX =
           e.touches[0].clientX;
-
         startY =
           e.touches[0].clientY;
-
         currentX = startX;
-
+        tracking = true;
       },
-      {
-        passive:true
-      }
+      {passive:true}
     );
-
-
-    element.addEventListener(
+    row.addEventListener(
       "touchmove",
       function(e){
-
+        if(!tracking){
+          return;
+        }
         if(
-          startX === null
-          ||
-          !e.touches
-          ||
+          !e.touches ||
           !e.touches.length
         ){
-
           return;
-
         }
-
-
         currentX =
           e.touches[0].clientX;
-
-
         var currentY =
           e.touches[0].clientY;
-
-
         var dx =
           currentX - startX;
-
-
         var dy =
           currentY - startY;
-
-
         /*
          * Yatay hareket belirginse
-         * hafif görsel geri bildirim.
+         * hafif görsel kaydırma.
          */
-
         if(
-          dx > 25
-          &&
-          Math.abs(dx) > Math.abs(dy)
+          Math.abs(dx) >
+          Math.abs(dy) &&
+          dx > 0
         ){
-
-          element.classList.add(
-            "swipe-hint"
-          );
-
+          if(dx < 90){
+            row.style.transform =
+              "translateX(" +
+              dx +
+              "px)";
+          }else{
+            row.style.transform =
+              "translateX(90px)";
+          }
         }
-
       },
-      {
-        passive:true
-      }
+      {passive:true}
     );
-
-
-    element.addEventListener(
+    row.addEventListener(
       "touchend",
       function(){
-
-        if(
-          startX === null
-          ||
-          currentX === null
-        ){
-
+        if(!tracking){
           return;
-
         }
-
-
+        tracking = false;
         var dx =
           currentX - startX;
-
-
+        row.style.transform = "";
         /*
-         * En az 70px sağa kaydırma.
+         * En az 70 px sağa kaydırma.
          */
-
         if(dx >= 70){
-
           toggleInstallmentPaid(
-            txId,
-            installmentIndex
+            item.txId,
+            item.index
           );
-
         }
-
-
-        startX = null;
-
-        startY = null;
-
-        currentX = null;
-
-
-        element.classList.remove(
-          "swipe-hint"
-        );
-
       },
-      {
-        passive:true
-      }
+      {passive:true}
     );
-
   }
-
-
-  function toggleInstallmentPaid(
-    txId,
-    installmentIndex
-  ){
-
-    var tx =
-      state.transactions.find(
-        function(t){
-
-          return t.id === txId;
-
-        }
-      );
-
-
-    if(!tx){
-
-      return;
-
-    }
-
-
-    var paid =
-      isInstallmentPaid(
-        tx,
-        installmentIndex
-      );
-
-
-    setInstallmentPaid(
-      tx,
-      installmentIndex,
-      !paid
-    );
-
-
-    saveState();
-
-    renderAll();
-
-  }
-
-
   /* ---------------- Card modal ---------------- */
-
   function openCardModal(
     cardId
   ){
-
     editingCardId =
       cardId;
-
-
     var card =
-      cardId
-        ? getCard(cardId)
-        : null;
-
-
+      cardId ?
+      getCard(cardId) :
+      null;
     document.getElementById(
       "cardModalTitle"
     ).textContent =
-      card
-        ? "Kartı Düzenle"
-        : "Kart Ekle";
-
-
+      card ?
+      "Kartı Düzenle" :
+      "Kart Ekle";
     document.getElementById(
       "cardNameInput"
     ).value =
-      card
-        ? card.name
-        : "";
-
-
+      card ?
+      card.name :
+      "";
     selectedColor =
-      card
-        ? card.color
-        : nextAvailableColor();
-
-
+      card ?
+      card.color :
+      nextAvailableColor();
     renderSwatches();
-
     hideError(
       "cardModalError"
     );
-
-
     document.getElementById(
       "cardModalOverlay"
-    ).classList.add(
-      "open"
+    ).classList.add("open");
+    setTimeout(
+      function(){
+        document.getElementById(
+          "cardNameInput"
+        ).focus();
+      },
+      50
     );
-
-
-    document.getElementById(
-      "cardNameInput"
-    ).focus();
-
   }
-
-
   function closeCardModal(){
-
     document.getElementById(
       "cardModalOverlay"
-    ).classList.remove(
-      "open"
-    );
-
+    ).classList.remove("open");
   }
-
-
   function renderSwatches(){
-
     var wrap =
       document.getElementById(
         "colorSwatches"
       );
-
-
     wrap.innerHTML = "";
-
-
     PALETTE.forEach(
       function(color){
-
         var sw =
           document.createElement(
             "div"
           );
-
-
         sw.className =
-          "swatch"
-          + (
-            color === selectedColor
-              ? " selected"
-              : ""
+          "swatch" +
+          (
+            color === selectedColor ?
+            " selected" :
+            ""
           );
-
-
         sw.style.background =
           color;
-
-
         sw.addEventListener(
           "click",
           function(){
-
             selectedColor =
               color;
-
             renderSwatches();
-
           }
         );
-
-
-        wrap.appendChild(
-          sw
-        );
-
+        wrap.appendChild(sw);
       }
     );
-
   }
-
-
   function saveCard(){
-
     var name =
       document.getElementById(
         "cardNameInput"
       ).value.trim();
-
-
     if(!name){
-
       showError(
         "cardModalError",
         "Lütfen kart için bir ad girin."
       );
-
       return;
-
     }
-
-
     if(editingCardId){
-
       var card =
         getCard(
           editingCardId
         );
-
-
-      card.name =
-        name;
-
+      if(!card){
+        return;
+      }
+      card.name = name;
       card.color =
         selectedColor;
-
     }else{
-
       if(
-        state.cards.length
-        >= MAX_CARDS
+        state.cards.length >=
+        MAX_CARDS
       ){
-
         showError(
           "cardModalError",
-          "En fazla "
-          + MAX_CARDS
-          + " kart ekleyebilirsiniz."
+          "En fazla " +
+          MAX_CARDS +
+          " kart ekleyebilirsiniz."
         );
-
         return;
-
       }
-
-
       state.cards.push({
-
         id:uid(),
-
         name:name,
-
         color:selectedColor
-
       });
-
     }
-
-
     saveState();
-
     renderAll();
-
     closeCardModal();
-
   }
-
-
-  function deleteCard(
-    cardId
-  ){
-
+  function deleteCard(cardId){
+    var card =
+      getCard(cardId);
+    if(!card){
+      return;
+    }
     var relatedCount =
       state.transactions.filter(
         function(tx){
-
           return tx.cardId === cardId;
-
         }
       ).length;
-
-
     var msg =
-      relatedCount > 0
-        ? "Bu karta ait "
-          + relatedCount
-          + " taksit kaydı da silinecek. Devam edilsin mi?"
-        : "Bu kartı silmek istediğinize emin misiniz?";
-
-
+      relatedCount > 0 ?
+      "Bu karta ait " +
+      relatedCount +
+      " taksit kaydı da silinecek. Devam edilsin mi?" :
+      "\"" +
+      card.name +
+      "\" kartını silmek istediğinize emin misiniz?";
     if(!confirm(msg)){
-
       return;
-
     }
-
-
     state.cards =
       state.cards.filter(
         function(c){
-
           return c.id !== cardId;
-
         }
       );
-
-
     state.transactions =
       state.transactions.filter(
         function(tx){
-
           return tx.cardId !== cardId;
-
         }
       );
-
-
     saveState();
-
     renderAll();
-
   }
-
-
   /* ---------------- Transaction modal ---------------- */
-
   function openTxModal(){
-
     if(state.cards.length === 0){
-
       alert(
         "Taksit ekleyebilmek için önce bir kart eklemelisiniz."
       );
-
       return;
-
     }
-
-
     document.getElementById(
       "txAmount"
     ).value = "";
-
-
     document.getElementById(
       "txCount"
     ).value = "1";
-
-
     setMonthYearSelects(
       currentMonthKey()
     );
-
-
     document.getElementById(
       "txNote"
     ).value = "";
-
-
     hideError(
       "txModalError"
     );
-
-
     updateTxPreview();
-
-
     document.getElementById(
       "txModalOverlay"
-    ).classList.add(
-      "open"
-    );
-
-
-    /*
-     * Kart alanına değil, tutar alanına
-     * odaklanmıyoruz; böylece modal açılır açılmaz
-     * klavye kendiliğinden açılmaz.
-     */
-
+    ).classList.add("open");
   }
-
-
   function closeTxModal(){
-
     document.getElementById(
       "txModalOverlay"
-    ).classList.remove(
-      "open"
-    );
-
+    ).classList.remove("open");
   }
-
-
   function populateCardSelect(){
-
     var select =
       document.getElementById(
         "txCardSelect"
       );
-
-
     var currentVal =
       select.value;
-
-
     select.innerHTML = "";
-
-
     state.cards.forEach(
       function(card){
-
         var opt =
           document.createElement(
             "option"
           );
-
-
         opt.value =
           card.id;
-
-
         opt.textContent =
           card.name;
-
-
-        select.appendChild(
-          opt
-        );
-
+        select.appendChild(opt);
       }
     );
-
-
     if(currentVal){
-
       select.value =
         currentVal;
-
     }
-
   }
-
-
   function updateTxPreview(){
-
-    var rawAmount =
-      document.getElementById(
-        "txAmount"
-      ).value || "";
-
-
-    /*
-     * Hem virgül hem nokta kabul edilir.
-     */
-
     var amount =
       parseFloat(
-        rawAmount
-          .replace(/\./g,"")
-          .replace(",",".")
+        document.getElementById(
+          "txAmount"
+        ).value
       );
-
-
-    /*
-     * Eğer kullanıcı sadece rakam girmişse
-     * doğrudan kullan.
-     */
-
-    if(
-      /^\d+$/.test(
-        rawAmount
-      )
-    ){
-
-      amount =
-        parseFloat(
-          rawAmount
-        );
-
-    }
-
-
     var count =
       parseInt(
         document.getElementById(
@@ -3490,125 +2166,55 @@
         ).value,
         10
       );
-
-
     var firstMonth =
       getSelectedFirstMonth();
-
-
     var box =
       document.getElementById(
         "txPreview"
       );
-
-
     if(
-      !amount
-      ||
-      amount <= 0
-      ||
-      !count
-      ||
-      count < 1
-      ||
+      !amount ||
+      amount <= 0 ||
+      !count ||
+      count < 1 ||
       !firstMonth
     ){
-
       box.innerHTML =
         "Aylık tutarı görmek için formu doldurun.";
-
       return;
-
     }
-
-
     var amounts =
       computeInstallmentAmounts(
         amount,
         count
       );
-
-
     var lastMonth =
       addMonths(
         firstMonth,
-        count - 1
+        count-1
       );
-
-
     box.innerHTML =
-      "Aylık taksit: <strong>"
-      + formatCurrency(
-          amounts[0]
-        )
-      + "</strong> · "
-      + "Başlangıç: "
-      + monthLabel(
-          firstMonth
-        )
-      + " · Bitiş: "
-      + monthLabel(
-          lastMonth
-        );
-
+      "Aylık taksit: <strong>" +
+      formatCurrency(
+        amounts[0]
+      ) +
+      "</strong> · " +
+      "Başlangıç: " +
+      monthLabel(firstMonth) +
+      " · Bitiş: " +
+      monthLabel(lastMonth);
   }
-
-
-  function parseAmount(value){
-
-    var v =
-      String(value || "")
-        .trim();
-
-
-    if(!v){
-
-      return NaN;
-
-    }
-
-
-    /*
-     * Türkçe ondalık kullanımını destekler.
-     *
-     * Örn:
-     * 12500
-     * 12500,50
-     */
-
-    if(
-      v.indexOf(",") !== -1
-    ){
-
-      v =
-        v.replace(/\./g,"")
-         .replace(",",".")
-         ;
-
-    }
-
-
-    return parseFloat(v);
-
-  }
-
-
   function saveTx(){
-
     var cardId =
       document.getElementById(
         "txCardSelect"
       ).value;
-
-
     var amount =
-      parseAmount(
+      parseFloat(
         document.getElementById(
           "txAmount"
         ).value
       );
-
-
     var count =
       parseInt(
         document.getElementById(
@@ -3616,375 +2222,222 @@
         ).value,
         10
       );
-
-
     var firstMonth =
       getSelectedFirstMonth();
-
-
     var note =
       document.getElementById(
         "txNote"
       ).value.trim();
-
-
     if(!cardId){
-
       showError(
         "txModalError",
         "Lütfen bir kart seçin."
       );
-
       return;
-
     }
-
-
     if(
-      isNaN(amount)
-      ||
+      !amount ||
       amount <= 0
     ){
-
       showError(
         "txModalError",
         "Lütfen geçerli bir tutar girin."
       );
-
       return;
-
     }
-
-
     if(
-      !count
-      ||
-      count < 1
+      !count ||
+      count < 1 ||
+      count > 36
     ){
-
       showError(
         "txModalError",
-        "Taksit sayısı en az 1 olmalıdır."
+        "Taksit sayısı 1 ile 36 arasında olmalıdır."
       );
-
       return;
-
     }
-
-
     if(!firstMonth){
-
       showError(
         "txModalError",
         "Lütfen ilk ödeme ayını seçin."
       );
-
       return;
-
     }
-
-
     state.transactions.push({
-
       id:uid(),
-
       cardId:cardId,
-
       totalAmount:
-        Math.round(
-          amount * 100
-        ) / 100,
-
+        Math.round(amount*100)/100,
       count:count,
-
       firstMonth:firstMonth,
-
       note:note,
-
-      /*
-       * Yeni işlem ilk oluşturulduğunda
-       * henüz hiçbir taksit ödenmiş değildir.
-       */
-
       paidInstallments:[]
-
     });
-
-
     saveState();
-
     renderAll();
-
     closeTxModal();
-
   }
-
-
-  function deleteTransaction(
-    txId
-  ){
-
+  function deleteTransaction(txId){
     if(
       !confirm(
         "Bu taksit kaydını silmek istediğinize emin misiniz?"
       )
     ){
-
       return;
-
     }
-
-
     state.transactions =
       state.transactions.filter(
         function(tx){
-
           return tx.id !== txId;
-
         }
       );
-
-
     saveState();
-
     renderAll();
-
   }
-
-
   /* ---------------- Utilities ---------------- */
-
   function showError(
     id,
     msg
   ){
-
     var el =
-      document.getElementById(
-        id
-      );
-
-
-    el.textContent =
-      msg;
-
-
+      document.getElementById(id);
+    el.textContent = msg;
     el.style.display =
       "block";
-
   }
-
-
   function hideError(id){
-
     var el =
-      document.getElementById(
-        id
-      );
-
-
+      document.getElementById(id);
     el.style.display =
       "none";
-
   }
-
-
+  /* ---------------- Tabs ---------------- */
+  function setActiveTab(tab){
+    activeTab = tab;
+    document.getElementById(
+      "tabCurrent"
+    ).classList.toggle(
+      "active",
+      tab === "current"
+    );
+    document.getElementById(
+      "tabPast"
+    ).classList.toggle(
+      "active",
+      tab === "past"
+    );
+    renderMonths();
+  }
   /* ---------------- Event wiring ---------------- */
-
   document.getElementById(
     "btnAddTx"
   ).addEventListener(
     "click",
     openTxModal
   );
-
-
+  document.getElementById(
+    "tabCurrent"
+  ).addEventListener(
+    "click",
+    function(){
+      setActiveTab(
+        "current"
+      );
+    }
+  );
+  document.getElementById(
+    "tabPast"
+  ).addEventListener(
+    "click",
+    function(){
+      setActiveTab(
+        "past"
+      );
+    }
+  );
   document.getElementById(
     "cardModalCancel"
   ).addEventListener(
     "click",
     closeCardModal
   );
-
-
   document.getElementById(
     "cardModalSave"
   ).addEventListener(
     "click",
     saveCard
   );
-
-
   document.getElementById(
     "cardModalOverlay"
   ).addEventListener(
     "click",
     function(e){
-
       if(e.target === this){
-
         closeCardModal();
-
       }
-
     }
   );
-
-
   document.getElementById(
     "txModalCancel"
   ).addEventListener(
     "click",
     closeTxModal
   );
-
-
   document.getElementById(
     "txModalSave"
   ).addEventListener(
     "click",
     saveTx
   );
-
-
   document.getElementById(
     "txModalOverlay"
   ).addEventListener(
     "click",
     function(e){
-
       if(e.target === this){
-
         closeTxModal();
-
       }
-
     }
   );
-
-
-  /*
-   * Artık özel numpad yok.
-   * Sistem klavyesi input alanlarına bağlı.
-   */
-
   document.getElementById(
     "txAmount"
   ).addEventListener(
     "input",
     updateTxPreview
   );
-
-
   document.getElementById(
     "txCount"
   ).addEventListener(
-    "input",
+    "change",
     updateTxPreview
   );
-
-
   document.getElementById(
-    "txNote"
+    "txFirstMonthSel"
   ).addEventListener(
-    "focus",
-    function(){
-
-      /*
-       * Sistem klavyesinin normal davranışı.
-       */
-
-    }
+    "change",
+    updateTxPreview
   );
-
-
-  [
-    "txFirstMonthSel",
+  document.getElementById(
     "txFirstYearSel"
-  ].forEach(
-    function(id){
-
-      document.getElementById(
-        id
-      ).addEventListener(
-        "change",
-        updateTxPreview
-      );
-
-    }
-  );
-
-
-  /*
-   * Sayısal alanlara yalnızca rakam,
-   * virgül ve nokta kabul ediyoruz.
-   *
-   * Klavye yine sistem klavyesi.
-   */
-
-  document.getElementById(
-    "txAmount"
   ).addEventListener(
-    "input",
-    function(){
-
-      this.value =
-        this.value.replace(
-          /[^0-9,.]/g,
-          ""
-        );
-
-      updateTxPreview();
-
-    }
+    "change",
+    updateTxPreview
   );
-
-
-  document.getElementById(
-    "txCount"
-  ).addEventListener(
-    "input",
-    function(){
-
-      this.value =
-        this.value.replace(
-          /[^0-9]/g,
-          ""
-        );
-
-      updateTxPreview();
-
-    }
-  );
-
-
   document.addEventListener(
     "keydown",
     function(e){
-
       if(e.key === "Escape"){
-
         closeCardModal();
-
         closeTxModal();
-
       }
-
     }
   );
-
-
   /* ---------------- Init ---------------- */
-
   populateMonthYearSelects();
-
+  populateInstallmentSelect();
   loadState();
-
   renderAll();
-
 })();
-
 </script>
-
 </body>
 </html>
